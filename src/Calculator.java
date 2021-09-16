@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class Calculator {
 
-    //Max och min- värden för kalkylatorn
     final private double MAX_INPUT_VALUE = 1000.0;
     final private double MIN_INPUT_VALUE = 0.0;
 
@@ -55,7 +54,8 @@ public class Calculator {
         System.out.println("Skriv in ett tal som du vill ta roten ur.");
         int x = (int) getVal(MIN_INPUT_VALUE,MAX_INPUT_VALUE);
         double sqrtOf = Math.sqrt(x);
-        System.out.println("Roten ur " + x + " är: " + sqrtOf);
+        System.out.printf("Roten ur " + x + " är: %.2f", sqrtOf);
+        System.out.println();
         return sqrtOf;
 
     }

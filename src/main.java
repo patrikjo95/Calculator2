@@ -2,8 +2,13 @@ import java.util.Scanner;
 
 public class main {
 
+    //Lucas Åkerlund
+    //Isabella Jonsson
+    //Patrik Johansson
+
     public static void main(String[] args) {
 
+        //Här kallar vi in klassen Calculator.
         Calculator calculator = new Calculator();
 		Scanner input = new Scanner(System.in);
         boolean running = true;
