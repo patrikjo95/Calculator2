@@ -35,7 +35,7 @@ public class Calculator {
         	inputValue = input.nextDouble();
         } catch(Exception e) {
 			System.out.println("Det måste vara ett nummer.");
-			input.nextLine();
+			input.next();
 			return getVal(MIN_INPUT_VALUE,MAX_INPUT_VALUE);
         }
 		System.out.println(inputValue);
@@ -43,10 +43,8 @@ public class Calculator {
             return inputValue;
         }else {
             System.out.println("Ditt värde är inte inom gränsen");
-            getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
+            return getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
         }
-
-        return -1;
     }
 
     //Räknar ut roten ur av användarens inskrivna tal.
