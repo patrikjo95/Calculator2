@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 public class Calculator {
 
-    final private double MAX_INPUT_VALUE = 1000.0;
-    final private double MIN_INPUT_VALUE = 0.0;
+    final private double MAX_INPUT_VALUE = 1000;
+    final private double MIN_INPUT_VALUE = 0;
 
     Scanner input;
 
@@ -22,15 +22,19 @@ public class Calculator {
     }
 
 	//Denna metod är värdelös.
-    public int getVal(int min, int max) {
-        return 0;
+    public int getVal(int min, int max) {return 0;
     }
 
-	//Denna metod hämtar en användares inmatning.
+    /**
+     * This method checks user input against program MAX and MIN value
+     * @param min program MIN value
+     * @param max program MAX value
+     * @return User input if correct values.
+     */
     public double getVal(double min, double max) {
-        System.out.println("Ange ett värde mellan " + min + " och " + max);
+        System.out.println("Ange ett tal mellan " + min + " och " + max);
         double inputValue = 0;
-		//Denna try catch hanterar situationen vid fel inmatning som annars hade kraschat programmet.
+
         try{
         	inputValue = input.nextDouble();
         } catch(Exception e) {
@@ -47,9 +51,11 @@ public class Calculator {
         }
     }
 
-    //Räknar ut roten ur av användarens inskrivna tal.
+    /**
+     * @return square root of two user input
+     */
     public double sqrtOf() {
-        System.out.println("Skriv in ett tal som du vill ta roten ur.");
+        System.out.println("Skriv in ett heltal som du vill ta roten ur.");
         int x = (int) getVal(MIN_INPUT_VALUE,MAX_INPUT_VALUE);
         double sqrtOf = Math.sqrt(x);
         System.out.printf("Roten ur " + x + " är: %.2f", sqrtOf);
@@ -57,7 +63,10 @@ public class Calculator {
         return sqrtOf;
 
     }
-    //Räknar ut andel av användarens inskrivna tal samt procentsats.
+
+    /**
+     * @return user called percentage of user value.
+     */
     public double procent() {
         System.out.println("Skriv in ett värde som du vill ta procent av.");
         double total = getVal(MIN_INPUT_VALUE , MAX_INPUT_VALUE);
@@ -67,7 +76,10 @@ public class Calculator {
         System.out.println(procent + "% av " + total + " är: " + value);
         return procent;
     }
-    //Räknar ut hypotenusan av användarens inskrivna 2 kateter.
+
+    /**
+     * @return hypotenuse of two user set catheters.
+     */
     public double pythagoras() {
         System.out.println("Skriv in en katet.");
         double x = getVal(MIN_INPUT_VALUE , MAX_INPUT_VALUE);
@@ -79,12 +91,14 @@ public class Calculator {
         return pythagoras;
     }
 
-    //Räknar ut area av cirkel MHA användarens inskrivna diameter.
+    /**
+     * @return area of circle with user input radii.
+     */
     public double circleA() {
         System.out.println("Skriv in din cirkels diameter.");
         double x = getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
         double radie = x / 2;
-        double circleA = radie*radie*3.14;
+        double circleA = radie*radie*Math.PI;
         System.out.println("Cirkens area är: " + circleA);
         return circleA;
     }

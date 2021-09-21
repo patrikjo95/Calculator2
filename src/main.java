@@ -1,10 +1,13 @@
 import java.util.Scanner;
 
+/**
+ * @author Patrik Johansson
+ * @author Lucas Åkerlund
+ * @author Isabella Jonsson
+ */
+
 public class main {
 
-    //Lucas Åkerlund
-    //Isabella Jonsson
-    //Patrik Johansson
 
     public static void main(String[] args) {
 
@@ -18,30 +21,22 @@ public class main {
             calculator.printMenu();
             System.out.print("> ");
             String val= input.nextLine();
-        	switch(val) {
-            case "1":
-                calculator.sqrtOf();
-            	break;
-            case "2":
-                calculator.procent();
-                break;
-            case "3":
-                calculator.pythagoras();
-                break;
-            case "4":
-                calculator.circleA();
-                break;
-            case "5":
-                running = false;
-                System.out.println("Programmet har stoppats.");
-                return;
-            default:
-                System.out.println("Fel, välj mellan 1-5");
-
+            switch (val) {
+                case "1" -> calculator.sqrtOf();
+                case "2" -> calculator.procent();
+                case "3" -> calculator.pythagoras();
+                case "4" -> calculator.circleA();
+                case "5" -> {
+                    running = false;
+                    System.out.println("Programmet har stoppats.");
+                    return;
+                }
+                default -> System.out.println("Fel, välj mellan 1-5");
             }
             System.out.println("Tryck enter för att fortsätta.");
             input.nextLine();
         }while(running);
+
     }
 
 }
