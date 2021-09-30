@@ -22,16 +22,18 @@ public class main {
             System.out.print("> ");
             String val= input.nextLine();
             switch (val) {
-                case "1" -> calculator.sqrtOf();
-                case "2" -> calculator.procent();
-                case "3" -> calculator.pythagoras();
-                case "4" -> calculator.circleA();
-                case "5" -> {
+                case "1" -> calculator.addition();
+                case "2" -> calculator.subtraktion();
+                case "3" -> calculator.sqrtOf();
+                case "4" -> calculator.procent();
+                case "5" -> calculator.pythagoras();
+                case "6" -> calculator.circleA();
+                case "7" -> {
                     running = false;
                     System.out.println("Programmet har stoppats.");
                     return;
                 }
-                default -> System.out.println("Fel, välj mellan 1-5");
+                default -> System.out.println("Fel, välj mellan 1-7");
             }
             System.out.println("Tryck enter för att fortsätta.");
             input.nextLine();

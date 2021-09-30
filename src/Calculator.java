@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Calculator {
 
     final private double MAX_INPUT_VALUE = 1000;
-    final private double MIN_INPUT_VALUE = 0;
+    final private double MIN_INPUT_VALUE = -1000;
 
     Scanner input;
 
@@ -14,19 +14,23 @@ public class Calculator {
     //Menyfunktion
     public void printMenu() {
         System.out.println("Välj ett av nedan matematiska funktioner att utföra: ");
-        System.out.println("1) Roten ur");
-        System.out.println("2) Procent");
-        System.out.println("3) Pythagoras sats");
-        System.out.println("4) Cirkelns area");
-        System.out.println("5) Avsluta");
+        System.out.println("1) Addition");
+        System.out.println("2) Subtraktion");
+        System.out.println("3) Roten ur");
+        System.out.println("4) Procent");
+        System.out.println("5) Pythagoras sats");
+        System.out.println("6) Cirkelns area");
+        System.out.println("7) Avsluta");
     }
 
-	//Denna metod är värdelös.
-    public int getVal(int min, int max) {return 0;
+    //Denna metod är värdelös.
+    public int getVal(int min, int max) {
+        return 0;
     }
 
     /**
      * This method checks user input against program MAX and MIN value
+     *
      * @param min program MIN value
      * @param max program MAX value
      * @return User input if correct values.
@@ -35,20 +39,21 @@ public class Calculator {
         System.out.println("Ange ett tal mellan " + min + " och " + max);
         double inputValue = 0;
 
-        try{
-        	inputValue = input.nextDouble();
-        } catch(Exception e) {
-			System.out.println("Det måste vara ett nummer.");
-			input.next();
-			return getVal(MIN_INPUT_VALUE,MAX_INPUT_VALUE);
+        try {
+            inputValue = input.nextDouble();
+        } catch (Exception e) {
+            System.out.println("Det måste vara ett nummer.");
+            input.next();
+            return getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
         }
-		System.out.println(inputValue);
-        if (inputValue >= min && inputValue <= max){
+        System.out.println(inputValue);
+        if (inputValue >= min && inputValue <= max) {
             return inputValue;
-        }else {
+        } else {
             System.out.println("Ditt värde är inte inom gränsen");
             return getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
         }
+
     }
 
     /**
@@ -56,7 +61,7 @@ public class Calculator {
      */
     public double sqrtOf() {
         System.out.println("Skriv in ett heltal som du vill ta roten ur.");
-        int x = (int) getVal(MIN_INPUT_VALUE,MAX_INPUT_VALUE);
+        int x = (int) getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
         double sqrtOf = Math.sqrt(x);
         System.out.printf("Roten ur " + x + " är: %.2f", sqrtOf);
         System.out.println();
@@ -69,10 +74,10 @@ public class Calculator {
      */
     public double procent() {
         System.out.println("Skriv in ett värde som du vill ta procent av.");
-        double total = getVal(MIN_INPUT_VALUE , MAX_INPUT_VALUE);
+        double total = getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
         System.out.println("Skriv in procenten.");
-        double procent = getVal(MIN_INPUT_VALUE , MAX_INPUT_VALUE);
-        double value = total * (procent/100);
+        double procent = getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
+        double value = total * (procent / 100);
         System.out.println(procent + "% av " + total + " är: " + value);
         return procent;
     }
@@ -82,9 +87,9 @@ public class Calculator {
      */
     public double pythagoras() {
         System.out.println("Skriv in en katet.");
-        double x = getVal(MIN_INPUT_VALUE , MAX_INPUT_VALUE);
+        double x = getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
         System.out.println("Skriv in en till katet.");
-        double y = getVal(MIN_INPUT_VALUE , MAX_INPUT_VALUE);
+        double y = getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
         double pythagoras = Math.hypot(x, y);
         System.out.printf("Hypotenusan av " + x + " och " + y + " är: %.2f", pythagoras);
         System.out.println();
@@ -98,9 +103,31 @@ public class Calculator {
         System.out.println("Skriv in din cirkels diameter.");
         double x = getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
         double radie = x / 2;
-        double circleA = radie*radie*Math.PI;
+        double circleA = radie * radie * Math.PI;
         System.out.println("Cirkens area är: " + circleA);
         return circleA;
     }
 
+    /**
+     * @return adderade tal
+     */
+    public double addition() {
+        System.out.println("Skriv in din första term att addera.");
+        double x = getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
+        System.out.println("Skriv in din andra term att addera.");
+        double y = getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
+        double addition = x + y;
+        System.out.println("Summan av " + x + " och " + y + " är: " + addition);
+        return addition;
+    }
+
+    public double subtraktion() {
+        System.out.println("Skriv in din första term att subtrahera ifrån.");
+        double x = getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
+        System.out.println("Skriv in din andra term att subtrahera från " + x);
+        double y = getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
+        double subtraktion = x - y;
+        System.out.println("Differensen av " + x + " och " + y + " är: " + subtraktion);
+        return subtraktion;
+    }
 }
