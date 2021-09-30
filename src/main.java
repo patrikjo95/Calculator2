@@ -14,12 +14,16 @@ public class main {
         //Här kallar vi in klassen Calculator.
         Calculator calculator = new Calculator();
 		Scanner input = new Scanner(System.in);
-        boolean running = true;
+        //boolean running = true;
+
+        //Förstagångsmeny-header
+        System.out.println("* Välkommen till Patriks miniräknare *");
+        System.out.println("______________________________________");
+        System.out.println("");
 
         //Hantering av menyval.
         do{
             calculator.printMenu();
-            System.out.print("> ");
             String val= input.nextLine();
             switch (val) {
                 case "1" -> calculator.addition();
@@ -29,17 +33,19 @@ public class main {
                 case "5" -> calculator.pythagoras();
                 case "6" -> calculator.circleA();
                 case "7" -> {
-                    running = false;
                     System.out.println("\n");
                     System.out.println("Programmet har stoppats.");
+                    System.out.println("Tack för att du använde Patriks kalkylator!");
+                    System.out.println("Hoppas vi ses snart igen!");
                     System.out.println("\n");
                     return;
                 }
                 default -> System.out.println("Fel, välj mellan 1-7");
             }
+            System.out.println("");
             System.out.println("Tryck enter för att fortsätta.");
             input.nextLine();
-        }while(running);
+        }while(true);
 
     }
 

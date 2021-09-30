@@ -13,10 +13,7 @@ public class Calculator {
 
     //Menyfunktion
     public void printMenu() {
-        System.out.println("* Välkommen till Patriks miniräknare *");
-        System.out.println("___________________________________");
-        System.out.println("");
-        System.out.println("Välj ett av nedan matematiska funktioner att utföra: ");
+        System.out.println("Välj mellan 1-7 för att utföra en av nedan matematiska funktioner:");
         System.out.println("1) Addition");
         System.out.println("2) Subtraktion");
         System.out.println("3) Roten ur");
@@ -24,11 +21,7 @@ public class Calculator {
         System.out.println("5) Pythagoras sats");
         System.out.println("6) Cirkelns area");
         System.out.println("7) Avsluta");
-    }
-
-    //Denna metod är värdelös.
-    public int getVal(int min, int max) {
-        return 0;
+        System.out.print(">");
     }
 
     /**
@@ -50,7 +43,7 @@ public class Calculator {
             input.next();
             return getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
         }
-        System.out.println(inputValue);
+        //System.out.println(inputValue);
         if (inputValue >= min && inputValue <= max) {
             return inputValue;
         } else {
@@ -68,9 +61,7 @@ public class Calculator {
         int x = (int) getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
         double sqrtOf = Math.sqrt(x);
         System.out.printf("Roten ur " + x + " är: %.2f", sqrtOf);
-        System.out.println();
         return sqrtOf;
-
     }
 
     /**
