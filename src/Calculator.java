@@ -13,6 +13,9 @@ public class Calculator {
 
     //Menyfunktion
     public void printMenu() {
+        System.out.println("* Välkommen till Patriks miniräknare *");
+        System.out.println("___________________________________");
+        System.out.println("");
         System.out.println("Välj ett av nedan matematiska funktioner att utföra: ");
         System.out.println("1) Addition");
         System.out.println("2) Subtraktion");
@@ -37,6 +40,7 @@ public class Calculator {
      */
     public double getVal(double min, double max) {
         System.out.println("Ange ett tal mellan " + min + " och " + max);
+        System.out.print(">");
         double inputValue = 0;
 
         try {
@@ -121,6 +125,9 @@ public class Calculator {
         return addition;
     }
 
+    /**
+     * @return subtraherade av tal
+     */
     public double subtraktion() {
         System.out.println("Skriv in din första term att subtrahera ifrån.");
         double x = getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);

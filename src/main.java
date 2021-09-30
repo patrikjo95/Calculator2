@@ -30,7 +30,9 @@ public class main {
                 case "6" -> calculator.circleA();
                 case "7" -> {
                     running = false;
+                    System.out.println("\n");
                     System.out.println("Programmet har stoppats.");
+                    System.out.println("\n");
                     return;
                 }
                 default -> System.out.println("Fel, välj mellan 1-7");
