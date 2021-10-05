@@ -2,6 +2,16 @@ import java.util.Scanner;
 
 public class Calculator {
 
+    public static final String TEXT_RESET = "\u001B[0m";
+    public static final String TEXT_BLACK = "\u001B[30m";
+    public static final String TEXT_RED = "\u001B[31m";
+    public static final String TEXT_GREEN = "\u001B[32m";
+    public static final String TEXT_YELLOW = "\u001B[33m";
+    public static final String TEXT_BLUE = "\u001B[34m";
+    public static final String TEXT_PURPLE = "\u001B[35m";
+    public static final String TEXT_CYAN = "\u001B[36m";
+    public static final String TEXT_WHITE = "\u001B[37m";
+
     final private double MAX_INPUT_VALUE = 1000;
     final private double MIN_INPUT_VALUE = -1000;
 
@@ -19,8 +29,9 @@ public class Calculator {
         System.out.println("3) Roten ur");
         System.out.println("4) Procent");
         System.out.println("5) Pythagoras sats");
-        System.out.println("6) Cirkelns area");
-        System.out.println("7) Avsluta");
+        System.out.println("6) Area av en cirkel");
+        System.out.println("7) Area av en hexagon");
+        System.out.println("8) Avsluta");
         System.out.print(">");
     }
 
@@ -34,7 +45,7 @@ public class Calculator {
     public double getVal(double min, double max) {
         System.out.println("Ange ett tal mellan " + min + " och " + max);
         System.out.print(">");
-        double inputValue = 0;
+        double inputValue;
 
         try {
             inputValue = input.nextDouble();
@@ -54,6 +65,34 @@ public class Calculator {
     }
 
     /**
+     * @return adderade tal
+     */
+    public double addition() {
+        System.out.println("Skriv in din första term att addera.");
+        double x = getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
+        System.out.println("Skriv in din andra term att addera.");
+        double y = getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
+        double addition = x + y;
+        System.out.println("Summan av " + x + " och " + y + " är: " + addition);
+        System.out.println();
+        return addition;
+    }
+
+    /**
+     * @return subtraherade av tal
+     */
+    public double subtraktion() {
+        System.out.println("Skriv in din första term att subtrahera ifrån.");
+        double x = getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
+        System.out.println("Skriv in din andra term att subtrahera från " + x);
+        double y = getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
+        double subtraktion = x - y;
+        System.out.println("Differensen av " + x + " och " + y + " är: " + subtraktion);
+        System.out.println();
+        return subtraktion;
+    }
+
+    /**
      * @return square root of two user input
      */
     public double sqrtOf() {
@@ -61,6 +100,7 @@ public class Calculator {
         int x = (int) getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
         double sqrtOf = Math.sqrt(x);
         System.out.printf("Roten ur " + x + " är: %.2f", sqrtOf);
+        System.out.println();
         return sqrtOf;
     }
 
@@ -74,6 +114,7 @@ public class Calculator {
         double procent = getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
         double value = total * (procent / 100);
         System.out.println(procent + "% av " + total + " är: " + value);
+        System.out.println();
         return procent;
     }
 
@@ -99,33 +140,18 @@ public class Calculator {
         double x = getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
         double radie = x / 2;
         double circleA = radie * radie * Math.PI;
-        System.out.println("Cirkens area är: " + circleA);
+        System.out.println("Cirkelns area är: " + circleA);
+        System.out.println();
         return circleA;
     }
 
-    /**
-     * @return adderade tal
-     */
-    public double addition() {
-        System.out.println("Skriv in din första term att addera.");
+    public double hexagonA(){
+        System.out.println("Skriv in sidan av din hexagon.");
         double x = getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
-        System.out.println("Skriv in din andra term att addera.");
-        double y = getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
-        double addition = x + y;
-        System.out.println("Summan av " + x + " och " + y + " är: " + addition);
-        return addition;
+        double hexagonA = (6 * Math.pow(x, 2) / (4*Math.tan(Math.PI/6)));
+        System.out.printf("Arean av din hexagon är: " + "%.2f", hexagonA);
+        System.out.println();
+        return hexagonA;
     }
 
-    /**
-     * @return subtraherade av tal
-     */
-    public double subtraktion() {
-        System.out.println("Skriv in din första term att subtrahera ifrån.");
-        double x = getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
-        System.out.println("Skriv in din andra term att subtrahera från " + x);
-        double y = getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
-        double subtraktion = x - y;
-        System.out.println("Differensen av " + x + " och " + y + " är: " + subtraktion);
-        return subtraktion;
-    }
 }

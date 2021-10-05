@@ -13,7 +13,7 @@ public class main {
 
         //Här kallar vi in klassen Calculator.
         Calculator calculator = new Calculator();
-		Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         //boolean running = true;
 
         //Förstagångsmeny-header
@@ -22,9 +22,9 @@ public class main {
         System.out.println("");
 
         //Hantering av menyval.
-        do{
+        do {
             calculator.printMenu();
-            String val= input.nextLine();
+            String val = input.nextLine();
             switch (val) {
                 case "1" -> calculator.addition();
                 case "2" -> calculator.subtraktion();
@@ -32,7 +32,8 @@ public class main {
                 case "4" -> calculator.procent();
                 case "5" -> calculator.pythagoras();
                 case "6" -> calculator.circleA();
-                case "7" -> {
+                case "7" -> calculator.hexagonA();
+                case "8" -> {
                     System.out.println("\n");
                     System.out.println("Programmet har stoppats.");
                     System.out.println("Tack för att du använde Patriks kalkylator!");
@@ -40,12 +41,12 @@ public class main {
                     System.out.println("\n");
                     return;
                 }
-                default -> System.out.println("Fel, välj mellan 1-7");
+                default -> System.out.println("Fel, välj mellan 1-8");
             }
-            System.out.println("");
+            System.out.println();
             System.out.println("Tryck enter för att fortsätta.");
             input.nextLine();
-        }while(true);
+        } while (true);
 
     }
 
