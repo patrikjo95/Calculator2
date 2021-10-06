@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Calculator {
 
+    //Colour if you want to add some sparkles to your strings
     public static final String TEXT_RESET = "\u001B[0m";
     public static final String TEXT_BLACK = "\u001B[30m";
     public static final String TEXT_RED = "\u001B[31m";
@@ -11,6 +12,9 @@ public class Calculator {
     public static final String TEXT_PURPLE = "\u001B[35m";
     public static final String TEXT_CYAN = "\u001B[36m";
     public static final String TEXT_WHITE = "\u001B[37m";
+
+
+
 
     final private double MAX_INPUT_VALUE = 1000;
     final private double MIN_INPUT_VALUE = -1000;
@@ -50,7 +54,7 @@ public class Calculator {
         try {
             inputValue = input.nextDouble();
         } catch (Exception e) {
-            System.out.println("Det måste vara ett nummer.");
+            System.out.println(TEXT_RED + "Det måste vara ett nummer." + TEXT_RESET);
             input.next();
             return getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
         }
@@ -58,7 +62,7 @@ public class Calculator {
         if (inputValue >= min && inputValue <= max) {
             return inputValue;
         } else {
-            System.out.println("Ditt värde är inte inom gränsen");
+            System.out.println(TEXT_RED + "Ditt värde är inte inom gränsen" + TEXT_RESET);
             return getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
         }
 
@@ -73,7 +77,7 @@ public class Calculator {
         System.out.println("Skriv in din andra term att addera.");
         double y = getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
         double addition = x + y;
-        System.out.println("Summan av " + x + " och " + y + " är: " + addition);
+        System.out.println(TEXT_CYAN + "Summan av " + x + " och " + y + " är: " + addition + TEXT_RESET);
         System.out.println();
         return addition;
     }
@@ -87,7 +91,7 @@ public class Calculator {
         System.out.println("Skriv in din andra term att subtrahera från " + x);
         double y = getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
         double subtraktion = x - y;
-        System.out.println("Differensen av " + x + " och " + y + " är: " + subtraktion);
+        System.out.println(TEXT_CYAN + "Differensen av " + x + " och " + y + " är: " + subtraktion + TEXT_RESET);
         System.out.println();
         return subtraktion;
     }
@@ -99,7 +103,7 @@ public class Calculator {
         System.out.println("Skriv in ett heltal som du vill ta roten ur.");
         int x = (int) getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
         double sqrtOf = Math.sqrt(x);
-        System.out.printf("Roten ur " + x + " är: %.2f", sqrtOf);
+        System.out.printf(TEXT_CYAN + "Roten ur " + x + " är: %.2f", sqrtOf + TEXT_RESET);
         System.out.println();
         return sqrtOf;
     }
@@ -113,7 +117,7 @@ public class Calculator {
         System.out.println("Skriv in procenten.");
         double procent = getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
         double value = total * (procent / 100);
-        System.out.println(procent + "% av " + total + " är: " + value);
+        System.out.println(TEXT_CYAN + procent + "% av " + total + " är: " + value + TEXT_RESET);
         System.out.println();
         return procent;
     }
@@ -127,7 +131,7 @@ public class Calculator {
         System.out.println("Skriv in en till katet.");
         double y = getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
         double pythagoras = Math.hypot(x, y);
-        System.out.printf("Hypotenusan av " + x + " och " + y + " är: %.2f", pythagoras);
+        System.out.printf(TEXT_CYAN + "Hypotenusan av " + x + " och " + y + " är: %.2f", pythagoras + TEXT_RESET);
         System.out.println();
         return pythagoras;
     }
@@ -140,16 +144,19 @@ public class Calculator {
         double x = getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
         double radie = x / 2;
         double circleA = radie * radie * Math.PI;
-        System.out.println("Cirkelns area är: " + circleA);
+        System.out.println(TEXT_CYAN + "Cirkelns area är: " + circleA + TEXT_RESET);
         System.out.println();
         return circleA;
     }
 
+    /**
+     * @return area of a hexagon with user input hexagon side.
+     */
     public double hexagonA(){
         System.out.println("Skriv in sidan av din hexagon.");
         double x = getVal(MIN_INPUT_VALUE, MAX_INPUT_VALUE);
         double hexagonA = (6 * Math.pow(x, 2) / (4*Math.tan(Math.PI/6)));
-        System.out.printf("Arean av din hexagon är: " + "%.2f", hexagonA);
+        System.out.printf(TEXT_CYAN + "Arean av din hexagon är: " + "%.2f", hexagonA + TEXT_RESET);
         System.out.println();
         return hexagonA;
     }
