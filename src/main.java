@@ -8,6 +8,10 @@ import java.util.Scanner;
 
 public class main {
 
+    public static final String TEXT_RED = "\u001B[31m";
+    public static final String TEXT_RESET = "\u001B[0m";
+    public static final String TEXT_GREEN = "\u001B[32m";
+    public static final String TEXT_YELLOW = "\u001B[33m";
 
     public static void main(String[] args) {
 
@@ -35,16 +39,16 @@ public class main {
                 case "7" -> calculator.hexagonA();
                 case "8" -> {
                     System.out.println("\n");
-                    System.out.println("Programmet har stoppats.");
+                    System.out.println(TEXT_YELLOW + "Programmet har stoppats.");
                     System.out.println("Tack för att du använde Patriks kalkylator!");
-                    System.out.println("Hoppas vi ses snart igen!");
+                    System.out.println("Hoppas vi ses snart igen!" + TEXT_RESET);
                     System.out.println("\n");
                     return;
                 }
-                default -> System.out.println("Fel, välj mellan 1-8");
+                default -> System.out.println(TEXT_RED + "Fel, välj mellan 1-8" + TEXT_RESET);
             }
             System.out.println();
-            System.out.println("Tryck enter för att fortsätta.");
+            System.out.println(TEXT_GREEN + "Tryck enter för att fortsätta." + TEXT_RESET) ;
             input.nextLine();
         } while (true);
 
